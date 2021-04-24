@@ -2,7 +2,7 @@ import telebot
 from keyboa import Keyboa
 import time
 
-bot = telebot.TeleBot('1765169732:AAF3-ceZcWm0cU3Py6hrFpGzs54ZiZ5lZLU')
+bot = telebot.TeleBot('скрыт в целях безопасности')
 
 
 @bot.message_handler(commands=['start'])
