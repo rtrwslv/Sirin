@@ -210,7 +210,7 @@ def fisht(callback):
                                                             " с адыгейского значит «белая голова».")
     bot.send_photo(chat_id=callback.message.chat.id,
                    photo='https://stadions.org/wp-content/uploads/2019/08/11458851-1024x759.jpg')
-    time.sleep(7)
+    time.sleep(2)
     less_go(callback)
 
 
@@ -236,7 +236,7 @@ def big_ice(callback):
                                                             " «Жизнь без границ» всемирно известный оратор Ник Вуйчич,"
                                                             " родившийся без рук и ног. Также бывают разнообразные"
                                                             " ярмарки, фестивали, конференции и выставки.")
-    time.sleep(7)
+    time.sleep(2)
     less_go(callback)
 
 
@@ -264,10 +264,8 @@ def adler(callback):
                                                             " витражными тонированными окнами🏙 и может"
                                                             " вместить 8000 зрителей🏠.")
     bot.send_photo(chat_id=callback.message.chat.id,
-                   photo="https://nicko.ru/wp-content/uploads/2018/04/%D0%90%D0%B4%D0%BB%D0%B5%D1%80"
-                         "-%D0%90%D1%80%D0%B5%D0%BD%D0%B0-%D0%A4%D0%BE%D1%82%D0%BE.jpg"
-                         "/768_768_1/1404.jpg")
-    time.sleep(7)
+                   photo="https://img.stapravda.ru/i/b/p38303.jpg")
+    time.sleep(2)
     less_go(callback)
 
 
@@ -289,7 +287,7 @@ def sirius(callback):
     bot.send_photo(chat_id=callback.message.chat.id,
                    photo="https://img.lookmytrips.com/images/look5j3j/"
                          "581b300bff93670f51018caa-5cc0a8a89323e-1ec1a58-lbcvr.jpg")
-    time.sleep(7)
+    time.sleep(2)
     less_go(callback)
 
 
@@ -309,7 +307,7 @@ def sirius_hotel(callback):
                                                             " кофе-брейков☕️. Возможность проживания с"
                                                             " животными🧸 позволит"
                                                             " взять любимого питомца с собой на отдых.")
-    time.sleep(4)
+    time.sleep(2)
     less_go(callback)
 
 
@@ -329,7 +327,7 @@ def sirius_lyceum(callback):
                                                             " художественно-музыкальная")
     bot.send_photo(chat_id=callback.message.chat.id,
                    photo="https://arch-sochi.ru/wp-content/uploads/2019/11/sochi-11205-1235.jpg")
-    time.sleep(4)
+    time.sleep(2)
     less_go(callback)
 
 
@@ -350,7 +348,7 @@ def fontains(callback):
                                                             "трибунах на 2000 мест.")
     bot.send_photo(chat_id=callback.message.chat.id,
                    photo="http://олимпийский-парк.рф/uploads/posts/2017-08/1502483385_2-op-feniks.jpg")
-    time.sleep(4)
+    time.sleep(2)
     less_go(callback)
 
 
@@ -427,7 +425,7 @@ def fisht_v_w(callback):
     bot.send_photo(chat_id=callback.message.chat.id,
                    photo='https://stadions.org/wp-content/uploads/2019/08/11458851-1024x759.jpg')
     bot.send_voice(chat_id=callback.message.chat.id, voice=voice)
-    time.sleep(3)
+    time.sleep(2)
     going_voice_w(callback)
 
 
