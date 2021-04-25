@@ -1,3 +1,4 @@
+#!/usr/bin/python3.9
 import telebot
 from keyboa import Keyboa
 import time
@@ -106,6 +107,9 @@ def inline(call):
         sirius_hotel_v_m(call)
     if call.data == "sirius_lyceum_v_m":
         sirius_lyceum_v_m(call)
+    if call.data == "fontains_v_m":
+        fontains_v_m(call)
+
     # woman_voice
     if call.data == "fontains_v_w":
         fontains_v_w(call)
@@ -150,7 +154,7 @@ def going_voice(callback):
 
 
 def start_voice_m(callback):
-    voice = open(r'C:\Users\yarsl\PycharmProjects\Bot_Kyoto2\Audio\Фонтан - м.mp3', 'rb')
+    voice = open(r'/opt/sirin/audio/Фонтан - м.mp3', 'rb')
     bot.send_photo(chat_id=callback.message.chat.id,
                    photo='https://static.tildacdn.com/tild3564-6538-4830-b364-653563643435/_2.jpg')
     bot.send_voice(chat_id=callback.message.chat.id, voice=voice)
@@ -159,7 +163,7 @@ def start_voice_m(callback):
 
 
 def start_voice_w(callback):
-    voice = open(r'C:\Users\yarsl\PycharmProjects\Bot_Kyoto2\Audio\введение1_1.mp3', 'rb')
+    voice = open(r'/opt/sirin/audio/введение1_1.mp3', 'rb')
     bot.send_photo(chat_id=callback.message.chat.id,
                    photo='https://static.tildacdn.com/tild3564-6538-4830-b364-653563643435/_2.jpg')
     bot.send_voice(chat_id=callback.message.chat.id, voice=voice)
@@ -353,7 +357,7 @@ def fontains(callback):
 
 
 def fisht_v_m(callback):
-    voice = open(r'C:\Users\yarsl\PycharmProjects\Bot_Kyoto2\Audio\Фишт - м.mp3', 'rb')
+    voice = open(r'/opt/sirin/audio/Фишт - м.mp3', 'rb')
     bot.send_photo(chat_id=callback.message.chat.id,
                    photo='https://stadions.org/wp-content/uploads/2019/08/11458851-1024x759.jpg')
     bot.send_voice(chat_id=callback.message.chat.id, voice=voice)
@@ -361,7 +365,7 @@ def fisht_v_m(callback):
 
 
 def big_ice_v_m(callback):
-    voice = open(r'C:\Users\yarsl\PycharmProjects\Bot_Kyoto2\Audio\Ледовый - м.mp3', 'rb')
+    voice = open(r'/opt/sirin/audio/Ледовый - м.mp3', 'rb')
     bot.send_photo(chat_id=callback.message.chat.id,
                    photo='https://yugarf.ru/wp-content/uploads/2018/04/ledovyy-dvorets-bolshoy-v-sochi.jpg')
     bot.send_voice(chat_id=callback.message.chat.id, voice=voice)
@@ -369,7 +373,7 @@ def big_ice_v_m(callback):
 
 
 def shaiba_v_m(callback):
-    voice = open(r'C:\Users\yarsl\PycharmProjects\Bot_Kyoto2\Audio\Шайба - м.mp3', 'rb')
+    voice = open(r'/opt/sirin/audio/Шайба - м.mp3', 'rb')
     bot.send_photo(chat_id=callback.message.chat.id,
                    photo="https://yugarf.ru/wp-content/uploads/2018/06/ledovaya-arena-shayba-v-adlere.jpg")
     bot.send_voice(chat_id=callback.message.chat.id, voice=voice)
@@ -377,7 +381,7 @@ def shaiba_v_m(callback):
 
 
 def adler_v_m(callback):
-    voice = open(r'C:\Users\yarsl\PycharmProjects\Bot_Kyoto2\Audio\Адлер арена.mp3', 'rb')
+    voice = open(r'/opt/sirin/audio/Адлер арена.mp3', 'rb')
     bot.send_photo(chat_id=callback.message.chat.id,
                    photo="https://nicko.ru/wp-content/uploads/2018/04/%D0%90%D0%B4%D0%BB%D0%B5%D1%80"
                          "-%D0%90%D1%80%D0%B5%D0%BD%D0%B0-%D0%A4%D0%BE%D1%82%D0%BE.jpg")
@@ -386,7 +390,7 @@ def adler_v_m(callback):
 
 
 def sirius_v_m(callback):
-    voice = open(r'C:\Users\yarsl\PycharmProjects\Bot_Kyoto2\Audio\Сириус - м.mp3', 'rb')
+    voice = open(r'/opt/sirin/audio/Сириус - м.mp3', 'rb')
     bot.send_photo(chat_id=callback.message.chat.id,
                    photo="https://img.lookmytrips.com/images/look5j3j/"
                          "581b300bff93670f51018caa-5cc0a8a89323e-1ec1a58-lbcvr.jpg")
@@ -395,7 +399,7 @@ def sirius_v_m(callback):
 
 
 def sirius_hotel_v_m(callback):
-    voice = open(r'C:\Users\yarsl\PycharmProjects\Bot_Kyoto2\Audio\Отель - м.mp3', 'rb')
+    voice = open(r'/opt/sirin/audio/Отель - м.mp3', 'rb')
     bot.send_photo(chat_id=callback.message.chat.id,
                    photo="https://cdn.101hotels.com/uploads/image/hotel_image/5020/50017.jpg")
     bot.send_voice(chat_id=callback.message.chat.id, voice=voice)
@@ -403,7 +407,7 @@ def sirius_hotel_v_m(callback):
 
 
 def sirius_lyceum_v_m(callback):
-    voice = open(r'C:\Users\yarsl\PycharmProjects\Bot_Kyoto2\Audio\Лицей - м.mp3', 'rb')
+    voice = open(r'/opt/sirin/audio/Лицей - м.mp3', 'rb')
     bot.send_photo(chat_id=callback.message.chat.id,
                    photo="https://arch-sochi.ru/wp-content/uploads/2019/11/sochi-11205-1235.jpg")
     bot.send_voice(chat_id=callback.message.chat.id, voice=voice)
@@ -411,7 +415,7 @@ def sirius_lyceum_v_m(callback):
 
 
 def fontains_v_m(callback):
-    voice = open(r'C:\Users\yarsl\PycharmProjects\Bot_Kyoto2\Audio\Фонтаны - м.mp3', 'rb')
+    voice = open(r'/opt/sirin/audio/Фонтаны - м.mp3', 'rb')
     bot.send_photo(chat_id=callback.message.chat.id,
                    photo="http://олимпийский-парк.рф/uploads/posts/2017-08/1502483385_2-op-feniks.jpg")
     bot.send_voice(chat_id=callback.message.chat.id, voice=voice)
@@ -421,7 +425,7 @@ def fontains_v_m(callback):
 # woman voice
 
 def fisht_v_w(callback):
-    voice = open(r'C:\Users\yarsl\PycharmProjects\Bot_Kyoto2\Audio\Woman voice\стадион Фишт .mp3', 'rb')
+    voice = open(r'/opt/sirin/audio/стадион Фишт .mp3', 'rb')
     bot.send_photo(chat_id=callback.message.chat.id,
                    photo='https://stadions.org/wp-content/uploads/2019/08/11458851-1024x759.jpg')
     bot.send_voice(chat_id=callback.message.chat.id, voice=voice)
@@ -430,7 +434,7 @@ def fisht_v_w(callback):
 
 
 def big_ice_v_w(callback):
-    voice = open(r'C:\Users\yarsl\PycharmProjects\Bot_Kyoto2\Audio\Woman voice\ледовый дворец Большой.mp3', 'rb')
+    voice = open(r'/opt/sirin/audio/ледовый дворец Большой.mp3', 'rb')
     bot.send_photo(chat_id=callback.message.chat.id,
                    photo='https://yugarf.ru/wp-content/uploads/2018/04/ledovyy-dvorets-bolshoy-v-sochi.jpg')
     bot.send_voice(chat_id=callback.message.chat.id, voice=voice)
@@ -439,7 +443,7 @@ def big_ice_v_w(callback):
 
 
 def shaiba_v_w(callback):
-    voice = open(r'C:\Users\yarsl\PycharmProjects\Bot_Kyoto2\Audio\Woman voice\ледовая арена шайба_1.mp3', 'rb')
+    voice = open(r'/opt/sirin/audio/ледовая арена шайба_1.mp3', 'rb')
     bot.send_photo(chat_id=callback.message.chat.id,
                    photo="https://yugarf.ru/wp-content/uploads/2018/06/ledovaya-arena-shayba-v-adlere.jpg")
     bot.send_voice(chat_id=callback.message.chat.id, voice=voice)
@@ -448,7 +452,7 @@ def shaiba_v_w(callback):
 
 
 def adler_v_w(callback):
-    voice = open(r'C:\Users\yarsl\PycharmProjects\Bot_Kyoto2\Audio\Woman voice\адлер-арена_1.mp3', 'rb')
+    voice = open(r'/opt/sirin/audio/адлер-арена_1.mp3', 'rb')
     bot.send_photo(chat_id=callback.message.chat.id,
                    photo="https://nicko.ru/wp-content/uploads/2018/04/%D0%90%D0%B4%D0%BB%D0%B5%D1%80"
                          "-%D0%90%D1%80%D0%B5%D0%BD%D0%B0-%D0%A4%D0%BE%D1%82%D0%BE.jpg")
@@ -458,7 +462,7 @@ def adler_v_w(callback):
 
 
 def sirius_v_w(callback):
-    voice = open(r'C:\Users\yarsl\PycharmProjects\Bot_Kyoto2\Audio\Woman voice\образовательный центр сириус_1.mp3',
+    voice = open(r'/opt/sirin/audio/образовательный центр сириус_1.mp3',
                  'rb')
     bot.send_photo(chat_id=callback.message.chat.id,
                    photo="https://img.lookmytrips.com/images/look5j3j/"
@@ -469,7 +473,7 @@ def sirius_v_w(callback):
 
 
 def sirius_hotel_v_w(callback):
-    voice = open(r'C:\Users\yarsl\PycharmProjects\Bot_Kyoto2\Audio\Woman voice\отель сириус_1.mp3', 'rb')
+    voice = open(r'/opt/sirin/audio/отель сириус_1.mp3', 'rb')
     bot.send_photo(chat_id=callback.message.chat.id,
                    photo="https://cdn.101hotels.com/uploads/image/hotel_image/5020/50017.jpg")
     bot.send_voice(chat_id=callback.message.chat.id, voice=voice)
@@ -478,7 +482,7 @@ def sirius_hotel_v_w(callback):
 
 
 def sirius_lyceum_v_w(callback):
-    voice = open(r'C:\Users\yarsl\PycharmProjects\Bot_Kyoto2\Audio\Woman voice\Сириус лицей1_1.mp3', 'rb')
+    voice = open(r'/opt/sirin/audio/Сириус лицей1_1.mp3', 'rb')
     bot.send_photo(chat_id=callback.message.chat.id,
                    photo="https://arch-sochi.ru/wp-content/uploads/2019/11/sochi-11205-1235.jpg")
     bot.send_voice(chat_id=callback.message.chat.id, voice=voice)
@@ -487,7 +491,7 @@ def sirius_lyceum_v_w(callback):
 
 
 def fontains_v_w(callback):
-    voice = open(r'C:\Users\yarsl\PycharmProjects\Bot_Kyoto2\Audio\Woman voice\фонтаны .mp3', 'rb')
+    voice = open(r'/opt/sirin/audio/фонтаны .mp3', 'rb')
     bot.send_photo(chat_id=callback.message.chat.id,
                    photo="http://олимпийский-парк.рф/uploads/posts/2017-08/1502483385_2-op-feniks.jpg")
     bot.send_voice(chat_id=callback.message.chat.id, voice=voice)
