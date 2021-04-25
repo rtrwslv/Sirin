@@ -1,17 +1,54 @@
 import telebot
 from keyboa import Keyboa
 import time
+import requests
+data = {}
+try:
+    res = requests.get("http://api.openweathermap.org/data/2.5/weather",
+                       params={'id': 491422, 'units': 'metric', 'lang': 'ru',
+                               'APPID': '28aa3a61053f758d554be331a9a3473a'})
+    data = res.json()
+except Exception as e:
+    print("Exception (weather):", e)
+    pass
+bot = telebot.TeleBot('1765169732:AAF3-ceZcWm0cU3Py6hrFpGzs54ZiZ5lZLU')
+if data:
+    if 'облачно' in data['weather'][0]['description']:
+        sm = "☁"
+    if 'солнечно' in data['weather'][0]['description']:
+        sm = "☀"
+    if 'снег' in data['weather'][0]['description']:
+        sm = "🌨"
+    if 'туман' in data['weather'][0]['description']:
+        sm = "🌫"
+    if 'дожд' in data['weather'][0]['description']:
+        sm = "☔"
+    try:
+        if int(data['main']['temp_max']) > 30:
+            temp_sm = "🥵"
+        if 20 <= int(data['main']['temp_max']) < 30:
+            temp_sm = "🌡️"
 
-bot = telebot.TeleBot('скрыт в целях безопасности')
+        if 10 <= int(data['main']['temp_max']) < 20:
+            temp_sm = "🥶"
+        if int(data['main']['temp_max']) < 10:
+            temp_sm = "🧊"
+    except Exception as e:
+        print(e)
 
 
 @bot.message_handler(commands=['start'])
 def send_welcome(message):
     bot.send_message(
-        message.from_user.id, 'Привет!😉 Я - Cирин, умная птица🕊 экскурсовод. Я могу рассказать тебе о прекрасной'
+        message.from_user.id, 'Приветcтвую!😉 Я - Cирин,\nумная птица🕊 экскурсовод. Я могу рассказать тебе о прекрасной'
                               ' федеральной территории Сириус⛰')
     time.sleep(2)
+    if data:
+        bot.send_message(chat_id=message.from_user.id, text=f"Сейчас в Сочи {data['weather'][0]['description']}{sm}.\n"
+                                                            f"Максимальная температура составляет:"
+                                                            f" {data['main']['temp_max']}°C{temp_sm}")
     menu = [{"Текстовая": "txt"}, {"Голосовая": "voice"}]
+    time.sleep(3)
     keyboard = Keyboa(items=menu, front_marker="", back_marker="").keyboard
     bot.send_message(chat_id=message.from_user.id, text="В каком формате тебе наиболее удобна экскурсия?",
                      reply_markup=keyboard)
@@ -94,15 +131,14 @@ def inline(call):
 
 def going_txt(callback):
     bot.send_message(chat_id=callback.message.chat.id, text="Тогда начнем, чего же ждать!")
-    time.sleep(4)
     bot.send_message(chat_id=callback.message.chat.id, text="Итак, прямо сейчас ты, наверное, вышел из поезда🚅 на"
                                                             " станции Имеритинский курорт и стоишь воле этого фонтана🌊"
                                                             "")
     bot.send_photo(chat_id=callback.message.chat.id,
                    photo='https://static.tildacdn.com/tild3564-6538-4830-b364-653563643435/_2.jpg')
-    time.sleep(2)
+    time.sleep(1)
     bot.send_message(chat_id=callback.message.chat.id, text="Пусть он и станет нашей отправной точкой😉")
-    time.sleep(2)
+    time.sleep(1)
     less_go(callback)
 
 
@@ -237,7 +273,8 @@ def adler(callback):
 
 def sirius(callback):
     bot.send_message(chat_id=callback.message.chat.id, text="Образовательный центр для детей по направлениям наука🔬,"
-                                                            " творчество🖼 и спорт⚽️. Цель работы образовательного центра"
+                                                            " творчество🖼 и спорт⚽️. Цель работы"
+                                                            " образовательного центра"
                                                             " «Сириус» – раннее выявление, развитие и дальнейшая"
                                                             " профессиональная поддержка одарённых детей, проявивших"
                                                             " выдающиеся способности в области искусств,"
@@ -246,7 +283,8 @@ def sirius(callback):
                                                             " Центр работает круглый год⏱. Для школьников,"
                                                             " демонстрирующих успехи в точных, цифровых и естественных"
                                                             " науках, в Центре организованы образовательные программы"
-                                                            " по математике👨‍🎓, информатике👨‍💻, физике, химии👨‍🔬, биологии🔬"
+                                                            " по математике👨‍🎓, информатике👨‍💻, физике,"
+                                                            " химии👨‍🔬, биологии🔬"
                                                             ", лингвистике🇺🇳 и проектной деятельности")
     bot.send_photo(chat_id=callback.message.chat.id,
                    photo="https://img.lookmytrips.com/images/look5j3j/"
@@ -268,7 +306,8 @@ def sirius_hotel(callback):
                                                             " тренажерный зал, собственный оборудованный пляж"
                                                             " и парковка. Для проведения мероприятий на высоком уровне"
                                                             " предлагаются функциональные конференц-залы и зона для"
-                                                            " кофе-брейков☕️. Возможность проживания с животными🧸 позволит"
+                                                            " кофе-брейков☕️. Возможность проживания с"
+                                                            " животными🧸 позволит"
                                                             " взять любимого питомца с собой на отдых.")
     time.sleep(4)
     less_go(callback)
@@ -421,7 +460,8 @@ def adler_v_w(callback):
 
 
 def sirius_v_w(callback):
-    voice = open(r'C:\Users\yarsl\PycharmProjects\Bot_Kyoto2\Audio\Woman voice\образовательный центр сириус_1.mp3', 'rb')
+    voice = open(r'C:\Users\yarsl\PycharmProjects\Bot_Kyoto2\Audio\Woman voice\образовательный центр сириус_1.mp3',
+                 'rb')
     bot.send_photo(chat_id=callback.message.chat.id,
                    photo="https://img.lookmytrips.com/images/look5j3j/"
                          "581b300bff93670f51018caa-5cc0a8a89323e-1ec1a58-lbcvr.jpg")
@@ -458,10 +498,11 @@ def fontains_v_w(callback):
 
 
 def end(callback):
-    bot.send_message(chat_id=callback.message.chat.id, text="Спасибо за использование нашего бота. Надеюсь вам"
-                                                            " понравился мой рассказ😅. Вы также можете перезапустить"
-                                                            " бота и изучить эксурсионный материал в другом формате)")
-    time.sleep(2)
+    bot.send_message(chat_id=callback.message.chat.id, text="Спасибо за использование нашего бота👀. Надеюсь тебе"
+                                                            " понравился мой рассказ😅. Ты также можешь перезапустить"
+                                                            " бота и изучить эксурсионный материал в другом формате💜."
+                                                            "\nДля перезапуска нажми на команду: /start")
+    time.sleep(1)
     bot.send_sticker(chat_id=callback.message.chat.id, data='CAACAgIAAxkBAAECOhNghI1MqYZN'
                                                             '8HpxE7MvJDwzu7MxPwACsQAD98zUGE-yzWOggc_4HwQ')
 
